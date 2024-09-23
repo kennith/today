@@ -1,6 +1,6 @@
 <template>
-    <div class="text-center my-5 fs-1 fw-bolder" :class="backgroundColor()">
-        This is {{ weekLabel() }} week.
+    <div class="text-center py-5 fs-1 fw-bolder" :class="backgroundColor()">
+        {{ weekLabel() }} week
     </div>
 </template>
 
@@ -15,10 +15,10 @@ function isDevelopmentweek() {
 
 function weekLabel() {
     if (isDevelopmentweek()) {
-        return 'development';
+        return 'Development';
     }
 
-    return 'planning';
+    return 'Planning';
 }
 
 function backgroundColor() {
