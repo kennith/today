@@ -1,6 +1,11 @@
 <template>
-    <div class="text-center py-5 fs-1 fw-bolder" :class="backgroundColor()">
-        {{ weekLabel() }} week
+    <div class="text-center py-5" :class="backgroundColor()">
+        <div class="fs-1 fw-bolder">
+            {{ weekLabel().toUpperCase() }}
+        </div>
+        <div class="fw-thin">
+            Week {{ weekOfYear }}
+        </div>
     </div>
 </template>
 
