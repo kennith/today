@@ -7,17 +7,15 @@ const projectObjects = [
   { title: 'Today', url: 'https://today.kennith.dev', githubUrl: 'https://github.com/kennith/today/' },
 ];
 
-const columnCount = `row-cols-${projectObjects.length}`;
 </script>
 
 <template>
   <main>
     <ThisWeek></ThisWeek>
     <div class="container my-3">
-      <div class="row" :class="columnCount">
-        <div v-for="(project, index) in projectObjects" v-bind:key="index">
-          <ProjectCard :project="project" class="col border  p-5"></ProjectCard>
-        </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 justify-content-center">
+        <ProjectCard v-for="(project, index) in projectObjects" v-bind:key="index" :project="project" class="col border p-5 m-1">
+        </ProjectCard>
       </div>
     </div>
   </main>
