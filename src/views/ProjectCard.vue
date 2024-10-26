@@ -8,7 +8,7 @@ const props = defineProps({
 <template>
     <div>
         <div class="text-center">
-            <h2 class="mb-3">
+            <h2 class="mb-3 text-break">
                 <a :href="props.project.url" target="_blank" class="text-black link-underline link-underline-opacity-0">
                     {{ props.project.title }}
                 </a>
