@@ -5,6 +5,7 @@ import ProjectCard from '@/views/ProjectCard.vue';
 const projectObjects = [
   { title: 'Habit Tracker', url: 'https://habit-tracker.kennith.dev', githubUrl: 'https://github.com/kennith/habit-tracker/' },
   { title: 'Today', url: 'https://today.kennith.dev', githubUrl: 'https://github.com/kennith/today/' },
+  { title: 'Moricoro', url: '', githubUrl: 'https://github.com/kennith/moricoro/' },
 ];
 
 </script>
