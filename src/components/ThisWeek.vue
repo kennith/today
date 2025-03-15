@@ -60,8 +60,4 @@ let thisWeekClass = computed(() => ({
     'bg-success-subtle': isDevelopmentweek(weekOfYear) && shouldHide.value,
     'bg-primary-subtle': !isDevelopmentweek(weekOfYear) && shouldHide.value,
 }));
-
-let thisWe = 'test'
-
-
 </script>
