@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center py-5" :class="backgroundColor()">
+    <div class="text-center py-5" :class="thisWeekClass" id="this-week">
         <div class="fs-1 fw-bolder">
             {{ weekLabelBanner }}
         </div>
@@ -13,7 +13,7 @@
 
 <script setup>
 import moment from 'moment';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 
 let weekOfYear = moment().week();
 let nextWeekOfYear = ref(weekOfYear.value + 1);
@@ -28,12 +28,19 @@ onMounted(() => {
     });
 })
 
+const shouldHide = ref(true);
+
 function refreshData() {
+    shouldHide.value = false;
     weekOfYear = moment().week();
     changeWhenReload.value = (new Date().toString());
     weekLabelBanner.value = weekLabel(weekOfYear);
     nextWeekOfYear.value = weekOfYear + 1;
     nextWeekLabel.value = weekLabel(nextWeekOfYear.value);
+
+    setTimeout(() => {
+        shouldHide.value = true;
+    }, 300)
 }
 
 function isDevelopmentweek(weekOfYear) {
@@ -44,15 +51,17 @@ function weekLabel(week) {
     if (isDevelopmentweek(week)) {
         return 'Development';
     }
+    thisWe = 'something';
 
     return 'Planning';
 }
 
-function backgroundColor() {
-    if (isDevelopmentweek(weekOfYear)) {
-        return 'bg-success-subtle';
-    }
+let thisWeekClass = computed(() => ({
+    'bg-success-subtle': isDevelopmentweek(weekOfYear) && shouldHide.value,
+    'bg-primary-subtle': !isDevelopmentweek(weekOfYear) && shouldHide.value,
+}));
 
-    return 'bg-primary-subtle';
-}
+let thisWe = 'test'
+
+
 </script>
