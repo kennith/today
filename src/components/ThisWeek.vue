@@ -51,7 +51,6 @@ function weekLabel(week) {
     if (isDevelopmentweek(week)) {
         return 'Development';
     }
-    thisWe = 'something';
 
     return 'Planning';
 }
