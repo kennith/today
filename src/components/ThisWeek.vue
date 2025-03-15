@@ -3,9 +3,7 @@
         <div class="fs-1 fw-bolder">
             {{ weekLabelBanner }}
         </div>
-        <div class="fw-thin">
-            Week {{ weekOfYear }}
-        </div>
+        <div class="fw-thin">Week {{ weekOfYear }}</div>
 
         <div>Next Week: {{ nextWeekLabel }}</div>
     </div>
@@ -26,21 +24,21 @@ onMounted(() => {
     window.addEventListener('focus', () => {
         refreshData();
     });
-})
+});
 
 const shouldHide = ref(true);
 
 function refreshData() {
     shouldHide.value = false;
     weekOfYear = moment().week();
-    changeWhenReload.value = (new Date().toString());
+    changeWhenReload.value = new Date().toString();
     weekLabelBanner.value = weekLabel(weekOfYear);
     nextWeekOfYear.value = weekOfYear + 1;
     nextWeekLabel.value = weekLabel(nextWeekOfYear.value);
 
     setTimeout(() => {
         shouldHide.value = true;
-    }, 300)
+    }, 300);
 }
 
 function isDevelopmentweek(weekOfYear) {
@@ -57,6 +55,6 @@ function weekLabel(week) {
 
 let thisWeekClass = computed(() => ({
     'bg-success-subtle': isDevelopmentweek(weekOfYear) && shouldHide.value,
-    'bg-primary-subtle': !isDevelopmentweek(weekOfYear) && shouldHide.value,
+    'bg-primary-subtle': !isDevelopmentweek(weekOfYear) && shouldHide.value
 }));
 </script>
