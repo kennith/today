@@ -1,11 +1,11 @@
 <template>
-    <div class="text-center py-5" :class="thisWeekClass" id="this-week">
-        <div class="fs-1 fw-bolder">
+    <div class="d-flex flex-column align-items-center vh-100 justify-content-center" :class="thisWeekClass" id="this-week">
+        <div class="fs-1 fw-bold text-uppercase my-3">
             {{ weekLabelBanner }}
         </div>
-        <div class="fw-thin">Week {{ weekOfYear }}</div>
+        <div class="fw-light">Week {{ weekOfYear }}</div>
 
-        <div>Next Week: {{ nextWeekLabel }}</div>
+        <div class="fw-lighter">Next Week: {{ nextWeekLabel }}</div>
     </div>
 </template>
 
