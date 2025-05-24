@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center py-5" :class="thisWeekClass" id="this-week">
+    <div class="d-flex flex-column align-items-center vh-100 justify-content-center" :class="thisWeekClass" id="this-week">
         <div class="fs-1 fw-bolder">
             {{ weekLabelBanner }}
         </div>
