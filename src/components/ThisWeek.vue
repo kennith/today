@@ -27,6 +27,9 @@ let changeWhenReload = ref('first');
 let weekLabelBanner = ref(weekLabel(weekOfYear));
 
 onMounted(() => {
+    refreshData();
+
+    // Refresh data when the window is focused
     window.addEventListener('focus', () => {
         refreshData();
     });
